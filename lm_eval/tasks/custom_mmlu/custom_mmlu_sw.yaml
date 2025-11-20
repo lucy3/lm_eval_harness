@@ -1,0 +1,15 @@
+task: mmmlu_sw
+dataset_path: openai/MMMLU
+dataset_name: SW_KE
+test_split: test
+num_fewshot: 0
+output_type: multiple_choice
+doc_to_text: "{{Question.strip()}}\nA. {{A}}\nB. {{B}}\nC. {{C}}\nD. {{D}}\nJibu:"
+doc_to_choice: ["A", "B", "C", "D"]
+doc_to_target: Answer
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.0
